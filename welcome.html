@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>ApeTranslation</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./resource/css/bootstrap.min.css" rel="stylesheet">
@@ -22,26 +22,53 @@
             background-attachment: fixed;
             background-position: center;
         }
+
+        .text {
+            text-align: center;
+        }
     </style>
 </head>
 
-<body unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
+<body onselectstart="return false;">
     <!-- Start your project here-->
     <div id="welcome">
         <div class="flex-center flex-column">
             <img ondragstart="return false;" class="mdui-img-circle" style="width: 80px;height: 80px;"
                 src="./ticon.png" />
-            <h1 class="animated fadeIn mb-4">Ape<span class="animated fadeIn text-muted">Translation</span>
+            <h1 class="animated fadeIn mb-4">猿<span class="animated fadeIn text-muted">翻译</span>
             </h1>
 
-            <h5 class="animated fadeIn mb-3">Thank you for using our product. Good luck !</h5>
+            <h5 class="animated fadeIn mb-3 text">The foundation of knowledge must be laid by reading. General
+                principles
+                must come from books, which, however.</h5>
 
-            <a class="btn btn-outline-info btn-lg" onclick="javascript:alert(new Date())" role="button"><i
+            <a class="btn btn-outline-info btn-lg" onclick="play()" role="button"><i
                     class="fa  fa-thumbs-o-up left"></i>
                 每日学一句</a>
         </div>
+        <audio style="display: none;">
+            <source src="" type="audio/mpeg">
+        </audio>
         <script>
+            function play() {
+                let audio = new Audio()
+                audio.src = "http://news.iciba.com/admin/tts/2019-03-19-day.mp3"
+                audio.play();
+                const { BrowserWindow } = require('electron').remote
+                const path = require('path')
 
+                const newWindowBtn = document.getElementById('new-window')
+
+                newWindowBtn.addEventListener('click', (event) => {
+                    const modalPath = path.join('file://', __dirname, './modal.html')
+                    let win = new BrowserWindow({ width: 400, height: 320 })
+
+                    win.on('close', () => { win = null })
+                    win.loadURL(modalPath)
+                    win.show()
+                })
+
+            }
         </script>
 </body>
 

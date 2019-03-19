@@ -7,15 +7,14 @@ let win
 function createWindow() {
     // 创建浏览器窗口。
     win = new BrowserWindow({
-        width: 540, height: 320, frame: false, resizable: false, center: true,
+        width: 540, height: 320, frame: false, resizable: true, center: true,
         icon: "./ticon.png",
-
     })
 
     // 然后加载应用的 index.html。
     win.loadFile('welcome.html')
 
-    // win.webContents.openDevTools()
+    win.webContents.openDevTools()
 
     // 当 window 被关闭，这个事件会被触发。
     win.on('closed', () => {
