@@ -28,16 +28,16 @@ var vue = new Vue({
 const size = 0;
 
 window.onload = function () {
-
+    alert(ServerAPI.welcome_api)
 }
 
 //创建新窗口函数
 const { BrowserWindow } = require('electron').remote
 const path = require('path')
 const PlayBtn = document.getElementById('Play')
+//创建audio对象为下面播放🎵音乐作准备,移动到外面防止重复点击
+const audio = new Audio();
 PlayBtn.addEventListener('click', (event) => {
-    //创建audio对象为下面播放🎵音乐作准备
-    const audio = new Audio()
     audio.src = welcome.mpegUrl;
     audio.play()
 });
