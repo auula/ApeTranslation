@@ -4,21 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello World!</title>
-    <style>
-        #welcome {
-            text-align: center
-        }
-    </style>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/resource/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="/resource/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="/resource/css/style.min.css" rel="stylesheet">
+
 </head>
 
-<body id="welcome">
-    <h1>Hello World!</h1>
-    We are using node
-    <script>document.write(process.versions.node)</script>,
-    Chrome
-    <script>document.write(process.versions.chrome)</script>,
-    and Electron
-    <script>document.write(process.versions.electron)</script>.
+<body>
+    <!-- Start your project here-->
+    <div style="height: 100vh;background-image: url(img/gradient2.png);">
+        <div class="flex-center flex-column">
+            <h1 class="animated fadeIn mb-4">Applo<span class="animated fadeIn text-muted"> for Linux</span> </h1>
+
+            <h5 class="animated fadeIn mb-3">Thank you for using our product. Good luck !</h5>
+
+            <a class="btn btn-outline-info btn-lg" href="/docs/intro" role="button"><i
+                    class="fa  fa-thumbs-o-up left"></i>
+                Understand more</a>
+        </div>
+
 </body>
 
 </html>
