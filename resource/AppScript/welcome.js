@@ -1,3 +1,4 @@
+require('/resource/AppScript/ServerAPI.js');
 //welcome对象
 let welcome = {
     content: "The foundation of knowledge must be laid by reading.",
@@ -28,6 +29,7 @@ var vue = new Vue({
 const size = 0;
 
 window.onload = function () {
+
     alert(ServerAPI.welcome_api)
 }
 
