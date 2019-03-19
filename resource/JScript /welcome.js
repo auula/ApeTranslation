@@ -1,4 +1,4 @@
-require('/resource/AppScript/ServerAPI.js');
+
 //welcome对象
 let welcome = {
     content: "The foundation of knowledge must be laid by reading.",
@@ -26,14 +26,9 @@ var vue = new Vue({
         mpegUrl: welcome.mpegUrl,
     }
 });
-const size = 0;
-
 window.onload = function () {
-
     alert(ServerAPI.welcome_api)
 }
-
-//创建新窗口函数
 const { BrowserWindow } = require('electron').remote
 const path = require('path')
 const PlayBtn = document.getElementById('Play')
@@ -43,7 +38,7 @@ PlayBtn.addEventListener('click', (event) => {
     audio.src = welcome.mpegUrl;
     audio.play()
 });
-
+//创建新窗口函数
 const LearningBtn = document.getElementById("Learning")
 LearningBtn.addEventListener('click', (event) => {
     const modalPath = path.join('file://', __dirname, '/view/main.html')
