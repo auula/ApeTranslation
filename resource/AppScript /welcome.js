@@ -4,7 +4,7 @@ let welcome = {
     icon: "./ticon.png",
     mpegUrl: "http://news.iciba.com/admin/tts/2019-03-19-day.mp3",
     //获取最新版本
-    version: function (event) {
+    new_version: function (event) {
 
     },
     //检查更新
@@ -16,6 +16,14 @@ let welcome = {
 
     }
 };
+var vue = new Vue({
+    el: "#welcome",
+    data: {
+        content: "Welclome this App.",
+        icon: "./ticon.png",
+        mpegUrl: "http://news.iciba.com/admin/tts/2019-03-19-day.mp3",
+    }
+});
 //创建新窗口函数
 const { BrowserWindow } = require('electron').remote
 const path = require('path')
@@ -25,7 +33,7 @@ newWindowBtn.addEventListener('click', (event) => {
     let audio = new Audio()
     audio.src = "http://news.iciba.com/admin/tts/2019-03-19-day.mp3"
     audio.play();
-    const modalPath = path.join('file://', __dirname, './main.html')
+    const modalPath = path.join('file://', __dirname, '/view/main.html')
     let win = new BrowserWindow({ width: 860, height: 620 })
     win.on('close', () => { win = null })
     win.loadURL(modalPath)
