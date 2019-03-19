@@ -15,13 +15,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         #welcome {
+
             height: 100vh;
             background-image: url(http://upload-images.jianshu.io/upload_images/1032113-f8a71af55e03af53?imageMogr2/auto-orient/strip)
         }
     </style>
 </head>
 
-<body>
+<body unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
     <!-- Start your project here-->
     <div id="welcome">
         <div class="flex-center flex-column">
@@ -30,11 +31,13 @@
 
             <h5 class="animated fadeIn mb-3">Thank you for using our product. Good luck !</h5>
 
-            <a class="btn btn-outline-info btn-lg" href="/docs/intro" role="button"><i
+            <a class="btn btn-outline-info btn-lg" onclick="javascript:alert(new Date())" role="button"><i
                     class="fa  fa-thumbs-o-up left"></i>
                 每日学一句</a>
         </div>
+        <script>
 
+        </script>
 </body>
 
 </html>
