@@ -30,6 +30,7 @@
 
         .text {
             text-align: center;
+
         }
     </style>
 
@@ -45,13 +46,15 @@
             </h1>
 
             <h5 class="animated fadeIn mb-3 text" v-text="content"></h5>
-
-            <a class="btn btn-outline-info btn-lg" id="Play" role="button"><i class="fa  fa-thumbs-o-up left"></i>
-                每日学一句</a>
+            <div style="float: left;">
+                <a class="btn btn-outline-info btn-lg " id="Play" role="button"><i class="fa fa-volume-up"
+                        aria-hidden="true"></i>
+                    学一句</a>
+                <a class="btn btn-outline-info btn-lg " id="Learning" role="button"><i class="fa fa-book"
+                        aria-hidden="true"></i>
+                    查单词</a>
+            </div>
         </div>
-        <audio style="display: none;">
-            <source type="audio/mpeg">
-        </audio>
         <!--引入本页面的js文件-->
         <script src="./resource/AppScript /welcome.js"></script>
 </body>
