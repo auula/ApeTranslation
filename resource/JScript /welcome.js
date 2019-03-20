@@ -1,5 +1,6 @@
-
 //welcome对象
+const { BrowserWindow } = require('electron').remote
+const path = require('path')
 let welcome = {
     content: "The foundation of knowledge must be laid by reading.",
     icon: "./ticon.png",
@@ -24,27 +25,47 @@ var vue = new Vue({
         content: welcome.content,
         icon: welcome.icon,
         mpegUrl: welcome.mpegUrl,
-    }
+        audio: new Audio(),
+    },
+    mounted() {
+        this.init();
+    },
+    methods: {
+        init() {
+            var package = require("./package.json");
+            console.log(package);
+            alert(package.version)
+        },
+        Play() {
+            this.audio.src = welcome.mpegUrl;
+            this.audio.play()
+        },
+        Learning(event) {
+            const modalPath = path.join('file://', __dirname, '/view/main.html')
+            let win = new BrowserWindow({ width: 860, height: 620 })
+            win.on('close', () => { win = null })
+            win.loadURL(modalPath)
+            win.show()
+            window.close()
+        }
+    },
 });
-window.onload = function () {
-    alert(ServerAPI.welcome_api)
-}
-const { BrowserWindow } = require('electron').remote
-const path = require('path')
-const PlayBtn = document.getElementById('Play')
-//创建audio对象为下面播放🎵音乐作准备,移动到外面防止重复点击
-const audio = new Audio();
-PlayBtn.addEventListener('click', (event) => {
-    audio.src = welcome.mpegUrl;
-    audio.play()
-});
+
+
+// const PlayBtn = document.getElementById('Play')
+// //创建audio对象为下面播放🎵音乐作准备,移动到外面防止重复点击
+// const audio = new Audio();
+// PlayBtn.addEventListener('click', (event) => {
+//     audio.src = welcome.mpegUrl;
+
+// });
 //创建新窗口函数
-const LearningBtn = document.getElementById("Learning")
-LearningBtn.addEventListener('click', (event) => {
-    const modalPath = path.join('file://', __dirname, '/view/main.html')
-    let win = new BrowserWindow({ width: 860, height: 620 })
-    win.on('close', () => { win = null })
-    win.loadURL(modalPath)
-    win.show()
-    this.close()
-});
+// const LearningBtn = document.getElementById("Learning")
+// LearningBtn.addEventListener('click', (event) => {
+//     const modalPath = path.join('file://', __dirname, '/view/main.html')
+//     let win = new BrowserWindow({ width: 860, height: 620 })
+//     win.on('close', () => { win = null })
+//     win.loadURL(modalPath)
+//     win.show()
+//     this.close()
+// });

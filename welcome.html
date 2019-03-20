@@ -47,10 +47,10 @@
 
             <h5 class="animated fadeIn mb-3 text" v-text="content"></h5>
             <div style="float: left;">
-                <a class="btn btn-outline-info btn-lg " id="Play" role="button"><i class="fa fa-volume-up"
+                <a class="btn btn-outline-info btn-lg " v-on:click="Play" role="button"><i class="fa fa-volume-up"
                         aria-hidden="true"></i>
                     学一句</a>
-                <a class="btn btn-outline-info btn-lg " id="Learning" role="button"><i class="fa fa-book"
+                <a class="btn btn-outline-info btn-lg " v-on:click="Learning" role="button"><i class="fa fa-book"
                         aria-hidden="true"></i>
                     查单词</a>
             </div>
