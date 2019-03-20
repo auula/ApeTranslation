@@ -1,10 +1,12 @@
-//welcome对象
+//引入一些必备的组件
 const { BrowserWindow } = require('electron').remote
 const path = require('path')
+const http = require('http')
+//welcome对象
 let welcome = {
-    content: "The foundation of knowledge must be laid by reading.",
+    content: "",
     icon: "./ticon.png",
-    mpegUrl: "http://news.iciba.com/admin/tts/2019-03-19-day.mp3",
+    mpegUrl: "",
     //获取最新版本
     new_version: function (event) {
 
@@ -22,13 +24,14 @@ let welcome = {
 var vue = new Vue({
     el: "#welcome",
     data: {
-        content: welcome.content,
-        icon: welcome.icon,
-        mpegUrl: welcome.mpegUrl,
+        content: 'Hello',
+        icon: './ticon.png',
+        mpegUrl: '',
         audio: new Audio(),
     },
     mounted() {
         this.init();
+        this.getServerData();
     },
     methods: {
         init() {
@@ -37,7 +40,7 @@ var vue = new Vue({
             alert(package.version)
         },
         Play() {
-            this.audio.src = welcome.mpegUrl;
+            this.audio.src = this.mpegUrl;
             this.audio.play()
         },
         Learning(event) {
@@ -47,7 +50,21 @@ var vue = new Vue({
             win.loadURL(modalPath)
             win.show()
             window.close()
-        }
+        },
+        ////获取服务器数据
+        async getServerData() {
+            http.get(ServerAPI.welcome_api, (res) => {
+                console.log(`Got response: ${res.statusCode}`);
+                res.setEncoding('utf-8')
+                res.on('data', (result) => {
+                    this.content = JSON.parse(result).content;
+                    this.mpegUrl = JSON.parse(result).mpegUrl;
+                })
+            }).on('error', (e) => {
+                console.log(`Got error: ${e.message}`);
+            });
+        },
+
     },
 });
 
