@@ -1,7 +1,7 @@
 //引入一些必备的组件
 const { BrowserWindow } = require('electron').remote
 const path = require('path')
-const http = require('http')
+const https = require('https')
 //welcome对象
 let welcome = {
     content: "",
@@ -53,7 +53,7 @@ var vue = new Vue({
         },
         ////获取服务器数据
         async getServerData() {
-            http.get(ServerAPI.welcome_api, (res) => {
+            https.get(ServerAPI.welcome_api, (res) => {
                 console.log(`Got response: ${res.statusCode}`);
                 res.setEncoding('utf-8')
                 res.on('data', (result) => {
