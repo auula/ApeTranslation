@@ -1,25 +1,7 @@
 //引入一些必备的组件
-const { BrowserWindow } = require('electron').remote
+const { BrowserWindow, app } = require('electron').remote
 const path = require('path')
 const http = require('http')
-//welcome对象
-let welcome = {
-    content: "",
-    icon: "./ticon.png",
-    mpegUrl: "",
-    //获取最新版本
-    new_version: function (event) {
-
-    },
-    //检查更新
-    update: function (params) {
-
-    },
-    //获取服务器数据
-    getServerData: function (event) {
-
-    }
-};
 //使用vue数据绑定方便
 var vue = new Vue({
     el: "#welcome",
@@ -28,16 +10,14 @@ var vue = new Vue({
         icon: './ticon.png',
         mpegUrl: '',
         audio: new Audio(),
+        btnShow: false
     },
     mounted() {
         this.init();
-        this.getServerData();
     },
     methods: {
         init() {
-            var package = require("./package.json");
-            console.log(package);
-            alert(package.version)
+            this.getServerData();
         },
         Play() {
             this.audio.src = this.mpegUrl;
@@ -49,20 +29,24 @@ var vue = new Vue({
             win.on('close', () => { win = null })
             win.loadURL(modalPath)
             win.show()
-
             window.close()
         },
         ////获取服务器数据
         async getServerData() {
             http.get(ServerAPI.welcome_api, (res) => {
-                console.log(`Got response: ${res.statusCode}`);
+                if (res.statusCode == 200) {
+                    this.btnShow = true;
+                }
                 res.setEncoding('utf-8')
                 res.on('data', (result) => {
                     this.content = JSON.parse(result).content;
                     this.mpegUrl = JSON.parse(result).mpegUrl;
                 })
             }).on('error', (e) => {
-                console.log(`Got error: ${e.message}`);
+                this.content = "服务器可能睡着了~请你稍后重试!程序8秒后自动退出!";
+                window.setTimeout(function () {
+                    app.quit();
+                }, 8000)
             });
         },
 

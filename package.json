@@ -20,8 +20,7 @@
         "mac": {
             "icon": "./resource/img/logo.icns",
             "target": [
-                "dmg",
-                "zip"
+                "dmg"
             ]
         },
         "dmg": {

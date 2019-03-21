@@ -46,7 +46,7 @@
             </h1>
 
             <h5 class="animated fadeIn mb-3 text" v-text="content"></h5>
-            <div style="float: left;">
+            <div v-show="btnShow" style="float: left;">
                 <a class="btn btn-outline-info btn-lg " v-on:click="Play" role="button"><i class="fa fa-volume-up"
                         aria-hidden="true"></i>
                     学一句</a>
