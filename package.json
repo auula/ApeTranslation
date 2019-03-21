@@ -13,7 +13,7 @@
         "asar": true,
         "electronVersion": "4.1.0",
         "icon": "./resource/img/logo",
-        "copyright": "👷个人独立开发:丁 烁 \n 📮:coding1618@gmail.com \n Copyright @ https://apet.codegc.me",
+        "copyright": "👷个人独立开发:丁 烁 \n 📮:coding1618@gmail.com \n Copyright ©️ https://apet.codegc.me",
         "directories": {
             "buildResources": "build"
         },
