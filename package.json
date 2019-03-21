@@ -1,6 +1,6 @@
 {
     "name": "apetranslation",
-    "version": "0.2.5",
+    "version": "1.0.1",
     "description": "一个使用Electron技术🚀开发的跨平台桌面操作系统强大的翻译程序🔥.",
     "main": "main.js",
     "scripts": {

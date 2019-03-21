@@ -24,8 +24,14 @@ var vue = new Vue({
             this.audio.play()
         },
         Learning(event) {
-            const modalPath = path.join('file://', __dirname, '/view/main.html')
-            let win = new BrowserWindow({ width: 860, height: 620 })
+            const modalPath = path.join('file://', __dirname, '/view/AppMain.html')
+            let win = new BrowserWindow({
+                width: 810, height: 560,
+                frame: false,
+                // resizable: false,
+                center: true
+            })
+            win.webContents.openDevTools()
             win.on('close', () => { win = null })
             win.loadURL(modalPath)
             win.show()
