@@ -14,7 +14,7 @@ function createWindow() {
     // 然后加载应用的 index.html。
     win.loadFile('welcome.html')
 
-    win.webContents.openDevTools()
+    //win.webContents.openDevTools()
 
     // 当 window 被关闭，这个事件会被触发。
     win.on('closed', () => {
@@ -78,128 +78,25 @@ let template = [{
         role: 'selectall'
     }]
 }, {
-    label: '查看',
-    submenu: [{
-        label: '重载',
-        accelerator: 'CmdOrCtrl+R',
-        click: (item, focusedWindow) => {
-            if (focusedWindow) {
-                // 重载之后, 刷新并关闭所有之前打开的次要窗体
-                if (focusedWindow.id === 1) {
-                    BrowserWindow.getAllWindows().forEach(win => {
-                        if (win.id > 1) win.close()
-                    })
-                }
-                focusedWindow.reload()
-            }
-        }
-    }, {
-        label: '切换全屏',
-        accelerator: (() => {
-            if (process.platform === 'darwin') {
-                return 'Ctrl+Command+F'
-            } else {
-                return 'F11'
-            }
-        })(),
-        click: (item, focusedWindow) => {
-            if (focusedWindow) {
-                focusedWindow.setFullScreen(!focusedWindow.isFullScreen())
-            }
-        }
-    }, {
-        label: '切换开发者工具',
-        accelerator: (() => {
-            if (process.platform === 'darwin') {
-                return 'Alt+Command+I'
-            } else {
-                return 'Ctrl+Shift+I'
-            }
-        })(),
-        click: (item, focusedWindow) => {
-            if (focusedWindow) {
-                focusedWindow.toggleDevTools()
-            }
-        }
-    }, {
-        type: 'separator'
-    }, {
-        label: '应用程序菜单演示',
-        click: function (item, focusedWindow) {
-            if (focusedWindow) {
-                const options = {
-                    type: 'info',
-                    title: '应用程序菜单演示',
-                    buttons: ['好的'],
-                    message: '此演示用于 "菜单" 部分, 展示如何在应用程序菜单中创建可点击的菜单项.'
-                }
-                dialog.showMessageBox(focusedWindow, options, function () { })
-            }
-        }
-    }]
-}, {
     label: '窗口',
     role: 'window',
     submenu: [{
         label: '最小化',
         accelerator: 'CmdOrCtrl+M',
         role: 'minimize'
-    }, {
-        label: '关闭',
-        accelerator: 'CmdOrCtrl+W',
-        role: 'close'
-    }, {
-        type: 'separator'
-    }, {
-        label: '重新打开窗口',
-        accelerator: 'CmdOrCtrl+Shift+T',
-        enabled: false,
-        key: 'reopenMenuItem',
-        click: () => {
-            app.emit('activate')
-        }
-    }]
+    }
+    ]
 }, {
     label: '帮助',
     role: 'help',
     submenu: [{
-        label: '学习更多',
+        label: 'GitHub🔥',
         click: () => {
-            shell.openExternal('http://electron.atom.io')
+            shell.openExternal('https://github.com/JDode/ApeTranslation')
         }
     }]
 }]
 
-function addUpdateMenuItems(items, position) {
-    if (process.mas) return
-
-    const version = app.getVersion()
-    let updateItems = [{
-        label: `版本 ${version}`,
-        enabled: false
-    }, {
-        label: '正在检查更新',
-        enabled: false,
-        key: 'checkingForUpdate'
-    }, {
-        label: '检查更新',
-        visible: false,
-        key: 'checkForUpdate',
-        click: () => {
-            require('electron').autoUpdater.checkForUpdates()
-        }
-    }, {
-        label: '重启并安装更新',
-        enabled: true,
-        visible: false,
-        key: 'restartToUpdate',
-        click: () => {
-            require('electron').autoUpdater.quitAndInstall()
-        }
-    }]
-
-    items.splice.apply(items, [position, 0].concat(updateItems))
-}
 
 function findReopenMenuItem() {
     const menu = Menu.getApplicationMenu()
@@ -223,7 +120,7 @@ if (process.platform === 'darwin') {
     template.unshift({
         label: name,
         submenu: [{
-            label: `关于 ${name}`,
+            label: `关于 ApeTranslation`,
             role: 'about'
         }, {
             type: 'separator'
@@ -237,13 +134,6 @@ if (process.platform === 'darwin') {
             label: `隐藏 ${name}`,
             accelerator: 'Command+H',
             role: 'hide'
-        }, {
-            label: '隐藏其它',
-            accelerator: 'Command+Alt+H',
-            role: 'hideothers'
-        }, {
-            label: '显示全部',
-            role: 'unhide'
         }, {
             type: 'separator'
         }, {
@@ -263,13 +153,9 @@ if (process.platform === 'darwin') {
             role: 'front'
         })
 
-    addUpdateMenuItems(template[0].submenu, 1)
 }
 
-if (process.platform === 'win32') {
-    const helpMenu = template[template.length - 1].submenu
-    addUpdateMenuItems(helpMenu, 0)
-}
+
 
 app.on('ready', () => {
     const menu = Menu.buildFromTemplate(template)

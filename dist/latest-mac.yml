@@ -1,0 +1,12 @@
+version: 0.2.5
+files:
+  - url: apetranslation-0.2.5-mac.zip
+    sha512: 7cvnGPGctPaeG6TDhFCNKT6Zwk7rsNWg/Dxi+pdvqs3sAEJEs6xP25nJYUH32Z7RNCl707LRgOKbjv4VRkUu0w==
+    size: 54224701
+    blockMapSize: 57627
+  - url: apetranslation-0.2.5.dmg
+    sha512: I6ph4FxuqkTwhq5UeGXB8bLn9Ih86wb8g8XTgxwJ0QXTJrqc+buKoUGU1Z77tnO+5+rxjffPDTjTbesWyAEdTg==
+    size: 56155441
+path: apetranslation-0.2.5-mac.zip
+sha512: 7cvnGPGctPaeG6TDhFCNKT6Zwk7rsNWg/Dxi+pdvqs3sAEJEs6xP25nJYUH32Z7RNCl707LRgOKbjv4VRkUu0w==
+releaseDate: '2019-03-21T04:38:58.059Z'

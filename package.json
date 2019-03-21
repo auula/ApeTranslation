@@ -1,25 +1,41 @@
 {
     "name": "apetranslation",
-    "version": "0.0.1",
-    "description": "A powerful translation program for cross-platform desktop operating systems developed using Electron technology.",
+    "version": "0.2.5",
+    "description": "一个使用Electron技术🚀开发的跨平台桌面操作系统强大的翻译程序🔥.",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "dist-win": "electron-builder --mac --x64"
     },
     "build": {
         "appId": "me.codegc.apetranslation",
         "productName": "猿翻译",
         "asar": true,
         "electronVersion": "4.1.0",
-        "copyright": "Copyright @ codegc.me ",
+        "icon": "./resource/img/ logo",
+        "copyright": "Copyright @ https://apet.codegc.me",
         "directories": {
             "buildResources": "build"
         },
         "mac": {
-            "icon": "./icon.icns"
+            "icon": "./resource/img/ logo.icns",
+            "target": [
+                "dmg",
+                "zip"
+            ]
+        },
+        "dmg": {
+            "background": "./resource/img/background.jpg",
+            "window": {
+                "x": 100,
+                "y": 100,
+                "width": 560,
+                "height": 380
+            }
         },
         "nsis": {
             "oneClick": false,
+            "installerIcon": "./icon.icns",
             "allowToChangeInstallationDirectory": true,
             "language": "zh-Hans"
         }

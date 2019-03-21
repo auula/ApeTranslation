@@ -9,7 +9,7 @@
     <key>CFBundleExecutable</key>
     <string>猿翻译</string>
     <key>CFBundleIconFile</key>
-    <string>electron.icns</string>
+    <string>猿翻译.icns</string>
     <key>CFBundleIdentifier</key>
     <string>me.codegc.apetranslation</string>
     <key>CFBundleInfoDictionaryVersion</key>
@@ -19,9 +19,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.0.1</string>
+    <string>0.2.5</string>
     <key>CFBundleVersion</key>
-    <string>0.0.1</string>
+    <string>0.2.5</string>
     <key>DTCompiler</key>
     <string>com.apple.compilers.llvm.clang.1_0</string>
     <key>DTSDKBuild</key>
@@ -45,7 +45,7 @@
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
     <key>NSHumanReadableCopyright</key>
-    <string>Copyright @ codegc.me </string>
+    <string>Copyright @ https://apet.codegc.me</string>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsLocalNetworking</key>
@@ -83,6 +83,6 @@
       </dict>
     </dict>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"dieiWnD2BKQYsQZ6DhoIgcePFMTCrATeRUF3ViwZlnz1gggk1ageQAVL9ngXi8FGsch8A9BCPqK7wnK4EytyHw==","electron.asar":"qnZmTNeXsPHx/b4C3PLbtMnjjza7vvgFKYBzkUZUEBuGIU+sOdJdhDoMKo0Qf5cv279shMIcNPPLkVCBG7EdHA=="}}</string>
+    <string>{"checksums":{"app.asar":"8JkKwdAKLGDsWOR1nIMe5x6bngZOPP9obZxV1bac6DpKb700c8eBfxF8pVRTWUW8PV6I07FplS0kBcz1nOmVTw==","electron.asar":"qnZmTNeXsPHx/b4C3PLbtMnjjza7vvgFKYBzkUZUEBuGIU+sOdJdhDoMKo0Qf5cv279shMIcNPPLkVCBG7EdHA=="}}</string>
   </dict>
 </plist>

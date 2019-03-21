@@ -29,6 +29,6 @@
     <key>CFBundleDisplayName</key>
     <string>猿翻译 Helper</string>
     <key>CFBundleVersion</key>
-    <string>0.0.1</string>
+    <string>0.2.5</string>
   </dict>
 </plist>
