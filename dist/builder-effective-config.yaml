@@ -1,0 +1,14 @@
+directories:
+  output: dist
+  buildResources: build
+appId: me.codegc.apetranslation
+productName: 猿翻译
+asar: true
+electronVersion: 4.1.0
+copyright: 'Copyright @ codegc.me '
+mac:
+  icon: ./icon.icns
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  language: zh-Hans
