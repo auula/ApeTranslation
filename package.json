@@ -12,13 +12,13 @@
         "productName": "猿翻译",
         "asar": true,
         "electronVersion": "4.1.0",
-        "icon": "./resource/img/ logo",
+        "icon": "./resource/img/logo",
         "copyright": "Copyright @ https://apet.codegc.me",
         "directories": {
             "buildResources": "build"
         },
         "mac": {
-            "icon": "./resource/img/ logo.icns",
+            "icon": "./resource/img/logo.icns",
             "target": [
                 "dmg",
                 "zip"
