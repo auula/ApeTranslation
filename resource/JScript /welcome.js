@@ -45,8 +45,8 @@ var vue = new Vue({
                 }
                 res.setEncoding('utf-8')
                 res.on('data', (result) => {
-                    this.content = JSON.paßrse(result).content;
-                    this.mpegUrl = JSON.parse(result).mpegUrl;
+                    this.content = JSON.parse(result).data.welcome.content;
+                    this.mpegUrl = JSON.parse(result).data.welcome.mpegUrl;
                 })
             }).on('error', (e) => {
                 this.content = "服务器可能睡着了~请你稍后重试!程序8秒后自动退出!";
