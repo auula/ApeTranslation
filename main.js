@@ -22,7 +22,7 @@ function createWindow() {
         // 通常会把多个 window 对象存放在一个数组里面，
         // 与此同时，你应该删除相应的元素。
         //win = null //首页防止应用重复打开
-        console.log("首页防止重开触发了")
+        console.log("infoLog:", "首页防止重开触发了", new Date())
     })
 }
 

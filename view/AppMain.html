@@ -60,12 +60,14 @@
                     {
                         text: '退出',
                         onClick: function (inst) {
+                            //console.log("infoLog:", "销毁App进程", new Date())
                             Quit();
                         }
                     }
                 ]
             });
         }
+        //销毁App进程
         function Quit() {
             const { app } = require('electron').remote
             app.quit();
@@ -85,7 +87,7 @@
             <span class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
                 mdui-drawer="{target: '#content-drawer', swipe: true}"><i
                     class="mdui-icon material-icons">menu</i></span>
-            <a href="" class="mdui-typo-headline mdui-hidden-xs">Applo 管理中心</a>
+            <a href="" class="mdui-typo-headline mdui-hidden-xs">ApeTranslation</a>
             <div class="mdui-toolbar-spacer"></div>
             <a href="https://github.com/zdhxiong/mdui" target="_blank"
                 class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '查看 Github'}">
@@ -114,25 +116,24 @@
 
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-                <div class="mdui-list-item-content">系统主页</div>
+                <div class="mdui-list-item-content">ApeTranslation</div>
             </li>
 
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
-                <div class="mdui-list-item-content">Dashboard</div>
+                <div class="mdui-list-item-content">功能菜单</div>
             </li>
 
             <li class="mdui-collapse-item mdui-collapse-item-open">
                 <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
                     <i class="mdui-list-item-icon mdui-icon material-icons">people</i>
-                    <div class="mdui-list-item-content">Apache James</div>
+                    <div class="mdui-list-item-content">翻译设置</div>
                     <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                 </div>
                 <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                    <li class="mdui-list-item mdui-ripple" onclick="view('JamesOS');">James管理</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="view('addMail');">添加用户邮箱</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="view('del');">删除用户邮箱</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="view('list');">查看所有邮箱</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="view('JamesOS');">🇨🇳中文 => 🇺🇸英文</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="view('addMail');">🇺🇸英文 => 🇨🇳中文</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="view('del');">其他语言支持后续添加😊</li>
                 </ul>
             </li>
 

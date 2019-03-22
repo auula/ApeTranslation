@@ -45,12 +45,13 @@ var vue = new Vue({
                 }
                 res.setEncoding('utf-8')
                 res.on('data', (result) => {
-                    this.content = JSON.parse(result).content;
+                    this.content = JSON.paßrse(result).content;
                     this.mpegUrl = JSON.parse(result).mpegUrl;
                 })
             }).on('error', (e) => {
                 this.content = "服务器可能睡着了~请你稍后重试!程序8秒后自动退出!";
                 window.setTimeout(function () {
+                    console.log("errorLog:", "启动页服务器连接失败", new Date())
                     app.quit();
                 }, 8000)
             });
