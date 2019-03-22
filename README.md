@@ -7,7 +7,7 @@
 
 <p align="center">
     🤩 <a href="https://github.com/JDode/ApeTranslation" target="_blank">仓库地址</a> | 
-    🍻<a href="https://github.com/JDode/ApeTranslation/releases" target="_blank">学习导航 </a> | 
+    🍻<a href="https://github.com/JDode/ApeTranslation/releases" target="_blank">下载软件</a> | 
     👷 <a href="https://wpa.qq.com/msgrd?v=3&uin=2420498526&site=qq&menu=yes" target="_blank">联系作者</a> 
 </p>
 
