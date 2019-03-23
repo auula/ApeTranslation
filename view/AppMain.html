@@ -16,6 +16,7 @@
 
             font-size: 50px;
             color: #000000;
+
         }
     </style>
     <script>
@@ -161,7 +162,29 @@
 
     <!-- 内容 -->
     <div class="mdui-container" id="content-main">
-        内容
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">请输入需要翻译的内容</label>
+            <textarea class="mdui-textfield-input" rows="4" placeholder="内容"></textarea>
+        </div>
+
+        <div style="text-align: center;margin: auto;">
+            <select class="mdui-select" mdui-select="{position: 'bottom'}">
+                <option value="1">🇰🇷韩文</option>
+                <option value="2">🇯🇵日文</option>
+                <option value="3" disabled>🇺🇸英文</option>
+                <option value="4">🇻🇳越文</option>
+                <option value="5">🇷🇺俄文</option>
+                <option value="6">🇮🇱希伯来文</option>
+            </select>
+        </div>
+        <div class="mdui-textfield">
+            <label class="mdui-textfield-label">翻译的结果</label>
+            <textarea class="mdui-textfield-input" rows="4" placeholder="结果"></textarea>
+        </div>
+        </br>
+        <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">翻译内容</button>
+        <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">复制结果</button>
+        <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">听语音</button>
     </div>
 
 </body>
