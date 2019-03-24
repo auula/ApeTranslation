@@ -6,12 +6,10 @@ var vue = new Vue({
     el: "#content-main",
     data: {
         trans: false,
-        about: true,
+        about: false,
+        server_list: true,
     }
 });
-
-
-
 
 function Exit() {
     mdui.dialog({

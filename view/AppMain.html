@@ -144,6 +144,55 @@
             </div>
         </div>
 
+        <div v-show="server_list">
+
+            <div class="mdui-table-fluid">
+                <table class="mdui-table">
+                    <thead>
+                        <tr>
+                            <th colspan="3">&nbsp;<i class="mdui-icon material-icons">&#xe2bf;</i>&nbsp;客户端网络状态</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>111@applo.club</td>
+                            <td><button class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple"
+                                    style="color:floralwhite;background: #448aff;"
+                                    mdui-dialog="{target: '#example-4'}">修 改</button>
+                            </td>
+                            <td><button class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple"
+                                    style="color:floralwhite;background: #f30909;" onclick="deluser('111@applo.club')">删
+                                    除</button>
+                            </td>
+                        </tr>
+                        <tr>
+
+                            <td>222@applo.club</td>
+                            <td>Thornton</td>
+                            <td>21</td>
+                        </tr>
+                        <tr>
+
+                            <td>333@applo.club</td>
+                            <td></td>
+                            <td>9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mdui-dialog" id="example-4">
+                <div class="mdui-dialog-title">修改信息</div>
+                <div class="mdui-dialog-content">
+                    <label class="mdui-textfield-label">邮箱密码</label>
+                    <input class="mdui-textfield-input" type="text" />
+                </div>
+                <div class="mdui-dialog-actions">
+                    <button class="mdui-btn mdui-ripple" mdui-dialog-close>取消</button>
+                    <button class="mdui-btn mdui-ripple" mdui-dialog-confirm>确定</button>
+                </div>
+            </div>
+        </div>
+
 
     </div>
     <script src="../resource/JScript /appMain.js"></script>
