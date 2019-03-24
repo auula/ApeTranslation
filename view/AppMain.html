@@ -2,7 +2,7 @@
 
 <head>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.loli.net/ajax/libs/mdui/0.4.2/css/mdui.min.css">
     <script src="http://cdnjs.loli.net/ajax/libs/mdui/0.4.2/js/mdui.min.js"></script>
     <style>
@@ -13,68 +13,10 @@
         #content-main {
             padding: 20px;
             width: 100%;
-
             font-size: 50px;
             color: #000000;
-
         }
     </style>
-    <script>
-
-        function view(kay) {
-            switch (kay) {
-                case "JamesOS":
-                    $("#content-main").load("./view/JamesOS.html");
-                    break;
-                case "addMail":
-                    $("#content-main").load("./view/addMail.html");
-                    break;
-                case "del":
-                    $("#content-main").load("./view/del.html");
-                    break;
-                case "OSPwd":
-                    $("#content-main").load("./view/OSPwd.html");
-                    break;
-                case "about":
-                    $("#content-main").load("./view/about.html");
-                    break;
-                case "port":
-                    $("#content-main").load("./view/port.html");
-                    break;
-                case "list":
-                    $("#content-main").load("./view/list.html");
-                    break;
-                default:
-                    $("#content-main").load("./view/about.html");
-                    break;
-            }
-
-        }
-        function Exit() {
-            mdui.dialog({
-                title: '⚠️系统提示:',
-                content: '你是想退出软件吗？如果想点击“退出”或者“取消”',
-                buttons: [
-                    {
-                        text: '取消'
-                    },
-                    {
-                        text: '退出',
-                        onClick: function (inst) {
-                            //console.log("infoLog:", "销毁App进程", new Date())
-                            Quit();
-                        }
-                    }
-                ]
-            });
-        }
-        //销毁App进程
-        function Quit() {
-            const { app } = require('electron').remote
-            app.quit();
-        }
-    </script>
-
 </head>
 
 <body class="mdui-drawer-body-left  mdui-appbar-with-toolbar mdui-theme-primary-indigo"
@@ -120,10 +62,7 @@
                 <div class="mdui-list-item-content">ApeTranslation</div>
             </li>
 
-            <li class="mdui-list-item mdui-ripple">
-                <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
-                <div class="mdui-list-item-content">功能菜单</div>
-            </li>
+
 
             <li class="mdui-collapse-item mdui-collapse-item-open">
                 <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
@@ -162,31 +101,53 @@
 
     <!-- 内容 -->
     <div class="mdui-container" id="content-main">
-        <div class="mdui-textfield">
-            <label class="mdui-textfield-label">请输入需要翻译的内容</label>
-            <textarea class="mdui-textfield-input" rows="4" placeholder="内容"></textarea>
+        <div v-show="trans">
+            <div class="mdui-textfield">
+                <label class="mdui-textfield-label">请输入需要翻译的内容</label>
+                <textarea class="mdui-textfield-input" rows="4" placeholder="内容"></textarea>
+            </div>
+
+            <div style="text-align: center;margin: auto;">
+                <select class="mdui-select" mdui-select="{position: 'bottom'}">
+                    <option value="1">🇰🇷韩文</option>
+                    <option value="2">🇯🇵日文</option>
+                    <option value="3" disabled>🇺🇸英文</option>
+                    <option value="4">🇻🇳越文</option>
+                    <option value="5">🇷🇺俄文</option>
+                    <option value="6">🇮🇱希伯来文</option>
+                </select>
+            </div>
+            <div class="mdui-textfield">
+                <label class="mdui-textfield-label">翻译的结果</label>
+                <textarea class="mdui-textfield-input" rows="4" placeholder="结果"></textarea>
+            </div>
+            </br>
+            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">翻译内容</button>
+            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">复制结果</button>
+            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">听语音</button>
         </div>
 
-        <div style="text-align: center;margin: auto;">
-            <select class="mdui-select" mdui-select="{position: 'bottom'}">
-                <option value="1">🇰🇷韩文</option>
-                <option value="2">🇯🇵日文</option>
-                <option value="3" disabled>🇺🇸英文</option>
-                <option value="4">🇻🇳越文</option>
-                <option value="5">🇷🇺俄文</option>
-                <option value="6">🇮🇱希伯来文</option>
-            </select>
+        <div v-show="about">
+            <div class="mdui-typo" style="text-align: center;margin: auto;">
+                <p style="font-size:48px;margin-top: 50px;margin-bottom:0px;font-weight: 300;">ApeTranslation<span
+                        style="color: #6c757d!important; line-height: 1.2;"> for Mac</span></p>
+                <img class="mdui-img-circle" style="width: 80px;height: 80px;" src="../ticon.png" />
+                <h5 style="font-size: 0.90rem;color: #6c757d!important;">Thank you for using our product.
+                </h5>
+                <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
+                    style="color:floralwhite;background: #001311;"><i class="fa fa-github"></i>Github</button>
+                <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
+                    style="color:floralwhite;background: #00C851;"><i class="fa fa-code"></i>website</button>
+                <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
+                    style="color:floralwhite;background: #448aff;"><i
+                        class="fa fa-facebook-square"></i>Facebook</button>
+            </div>
         </div>
-        <div class="mdui-textfield">
-            <label class="mdui-textfield-label">翻译的结果</label>
-            <textarea class="mdui-textfield-input" rows="4" placeholder="结果"></textarea>
-        </div>
-        </br>
-        <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">翻译内容</button>
-        <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">复制结果</button>
-        <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">听语音</button>
+
+
     </div>
-
+    <script src="../resource/JScript /appMain.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
 </body>
 
 </html>
