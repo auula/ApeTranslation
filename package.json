@@ -48,5 +48,8 @@
     "bugs": {
         "url": "https://github.com/JDode/ApeTranslation/issues"
     },
-    "homepage": "https://github.com/JDode/ApeTranslation#readme"
+    "homepage": "https://github.com/JDode/ApeTranslation#readme",
+    "dependencies": {
+        "jQuery": "^1.7.4"
+    }
 }
