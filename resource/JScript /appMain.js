@@ -12,6 +12,7 @@ var vue = new Vue({
 });
 
 function Exit() {
+
     mdui.dialog({
         title: '⚠️系统提示:',
         content: '你是想退出软件吗？如果想点击“退出”或者“取消”',

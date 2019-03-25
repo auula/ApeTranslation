@@ -50,7 +50,8 @@
     },
     "homepage": "https://github.com/JDode/ApeTranslation#readme",
     "dependencies": {
-        "jQuery": "^1.7.4"
+        "jQuery": "^1.7.4",
+        "node-tesr": "0.0.9"
     },
     "devDependencies": {
         "electron": "^4.1.1"
