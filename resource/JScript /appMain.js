@@ -10,7 +10,7 @@ var vue = new Vue({
         server_list: true,
     }
 });
-
+//https://juejin.im/post/5c89d779518825126b3c9863
 function Exit() {
 
     mdui.dialog({
