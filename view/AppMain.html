@@ -15,6 +15,7 @@
             width: 100%;
             font-size: 50px;
             color: #000000;
+
         }
     </style>
 </head>
@@ -71,28 +72,17 @@
                     <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
                 </div>
                 <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                    <li class="mdui-list-item mdui-ripple" onclick="view('JamesOS');">🇨🇳中文 => 🇺🇸英文</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="view('addMail');">🇺🇸英文 => 🇨🇳中文</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="tview()">翻译主窗口</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="aview()">客户端状态</li>
                     <li class="mdui-list-item mdui-ripple" onclick="view('del');">其他语言支持后续添加😊</li>
                 </ul>
             </li>
 
-            <li class="mdui-collapse-item">
-                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">device_hub</i>
-                    <div class="mdui-list-item-content">Applo System</div>
-                    <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-                </div>
-                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
-                    <li class="mdui-list-item mdui-ripple" onclick="view('OSPwd');">修改密码</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="view('port');">修改端口</li>
-                    <!--<li class="mdui-list-item mdui-ripple">A P I设置</li>-->
-                </ul>
-            </li>
+
 
             <li class="mdui-list-item mdui-ripple">
                 <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
-                <div class="mdui-list-item-content" onclick="view('about');">关于Applo</div>
+                <div class="mdui-list-item-content" onclick="aview()">关于Applo</div>
             </li>
 
         </ul>
@@ -155,27 +145,23 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>111@applo.club</td>
-                            <td><button class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple"
-                                    style="color:floralwhite;background: #448aff;"
-                                    mdui-dialog="{target: '#example-4'}">修 改</button>
+                            <td>客户端网络延迟</td>
+                            <td>正常
                             </td>
-                            <td><button class="mdui-btn mdui-btn-dense mdui-color-theme-accent mdui-ripple"
-                                    style="color:floralwhite;background: #f30909;" onclick="deluser('111@applo.club')">删
-                                    除</button>
+                            <td>服务器归属地:新加坡
                             </td>
                         </tr>
                         <tr>
 
-                            <td>222@applo.club</td>
-                            <td>Thornton</td>
-                            <td>21</td>
+                            <td>翻译服务器延迟</td>
+                            <td id="t" style="color: coral;">142ms</td>
+                            <td>api.t.codegc.me</td>
                         </tr>
                         <tr>
 
-                            <td>333@applo.club</td>
-                            <td></td>
-                            <td>9</td>
+                            <td>OCR服务器延迟</td>
+                            <td id="OCR" style="color: coral;"></td>
+                            <td>api.ocr.codegc.me</td>
                         </tr>
                     </tbody>
                 </table>
