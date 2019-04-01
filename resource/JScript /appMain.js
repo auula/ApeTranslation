@@ -17,6 +17,11 @@ function tview() {
     vue.about = false;
     vue.trans = true;
 }
+function sview() {
+    vue.about = false;
+    vue.trans = false;
+    vue.server_list = true;
+}
 function aview() {
     vue.trans = false;
     vue.server_list = false;
