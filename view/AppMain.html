@@ -5,6 +5,13 @@
     <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
     <link rel="stylesheet" href="http://cdnjs.loli.net/ajax/libs/mdui/0.4.2/css/mdui.min.css">
     <script src="http://cdnjs.loli.net/ajax/libs/mdui/0.4.2/js/mdui.min.js"></script>
+    <!--引入CSS-->
+    <link rel="stylesheet" type="text/css"
+        href="https://raw.githubusercontent.com/fex-team/webuploader/master/css/webuploader.css">
+
+    <!--引入JS-->
+    <script type="text/javascript"
+        src="https://raw.githubusercontent.com/fex-team/webuploader/master/dist/webuploader.js"></script>
     <style>
         .dialog-content {
             padding: 30px;
@@ -74,7 +81,7 @@
                 <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
                     <li class="mdui-list-item mdui-ripple" onclick="tview()">翻译主窗口</li>
                     <li class="mdui-list-item mdui-ripple" onclick="sview()">客户端状态</li>
-                    <li class="mdui-list-item mdui-ripple" onclick="v">其他语言支持后续添加😊</li>
+                    <li class="mdui-list-item mdui-ripple" onclick="uview()">O C R 翻译</li>
                 </ul>
             </li>
 
@@ -131,6 +138,20 @@
                 <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
                     style="color:floralwhite;background: #448aff;"><i
                         class="fa fa-facebook-square"></i>Facebook</button>
+            </div>
+        </div>
+        <div v-show="OCR">
+            <div class="mdui-typo" style="text-align: center;margin: auto;">
+
+
+                <!--SWF在初始化的时候指定，在后面将展示-->
+                <!--dom结构部分-->
+                <div id="uploader-demo">
+                    <!--用来存放item-->
+                    <div id="fileList" class="uploader-list"></div>
+                    <div id="filePicker">选择图片</div>
+                </div>
+
             </div>
         </div>
 

@@ -6,9 +6,10 @@ const http = require('http')
 var vue = new Vue({
     el: "#content-main",
     data: {
-        trans: true,
+        trans: false,
         about: false,
         server_list: false,
+        OCR: true
     }
 });
 
