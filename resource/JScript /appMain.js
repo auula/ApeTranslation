@@ -2,14 +2,15 @@
 const { BrowserWindow, app } = require('electron').remote
 const path = require('path')
 const http = require('http')
+var $ = require('jQuery');
 
 var vue = new Vue({
     el: "#content-main",
     data: {
-        trans: false,
+        trans: true,
         about: false,
         server_list: false,
-        OCR: true
+        OCR: false
     }
 });
 
@@ -17,16 +18,25 @@ function tview() {
     vue.server_list = false;
     vue.about = false;
     vue.trans = true;
+    vue.OCR = false;
 }
 function sview() {
+    vue.OCR = false;
     vue.about = false;
     vue.trans = false;
     vue.server_list = true;
 }
 function aview() {
+    vue.OCR = false;
     vue.trans = false;
     vue.server_list = false;
     vue.about = true;
+}
+function uview() {
+    vue.trans = false;
+    vue.server_list = false;
+    vue.about = false;
+    vue.OCR = true;
 }
 //https://juejin.im/post/5c89d779518825126b3c9863
 function Exit() {
@@ -48,6 +58,60 @@ function Exit() {
         ]
     });
 };
+
+$(function () {
+    // var Country = 
+    // var toCountry = $('#toCountry option:selected').val();
+    // alert(Country + ":" + toCountry)
+});
+
+function tran() {
+    let Country;
+    let toCountry;
+    switch ($('#Country option:selected').val()) {
+        case "1":
+            Country = "zh";
+            break;
+        case "2":
+            Country = "kor";
+            break;
+        case "3":
+            Country = "jp";
+            break;
+        case "4":
+            Country = "vie";
+            break;
+        case "5":
+            Country = "ru";
+            break;
+        case "6":
+            Country = "en";
+            break;
+    }
+    switch ($('#toCountry option:selected').val()) {
+        case "1":
+            toCountry = "zh";
+            break;
+        case "2":
+            toCountry = "kor";
+            break;
+        case "3":
+            toCountry = "jp";
+            break;
+        case "4":
+            toCountry = "vie";
+            break;
+        case "5":
+            toCountry = "ru";
+            break;
+        case "6":
+            toCountry = "en";
+            break;
+    }
+    alert(Country + ":" + toCountry)
+}
+
+
 //销毁App进程
 function Quit() {
     const { app } = require('electron').remote

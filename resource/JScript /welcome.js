@@ -26,7 +26,7 @@ var vue = new Vue({
         Learning(event) {
             const modalPath = path.join('file://', __dirname, '/view/AppMain.html')
             let win = new BrowserWindow({
-                width: 810, height: 560,
+                width: 880, height: 580,
                 frame: false,
                 // resizable: false,
                 center: true
