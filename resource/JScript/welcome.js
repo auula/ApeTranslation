@@ -39,6 +39,7 @@ var vue = new Vue({
         },
         ////获取服务器数据
         async getServerData() {
+
             http.get(ServerAPI.welcome_api, (res) => {
                 if (res.statusCode == 200) {
                     this.btnShow = true;

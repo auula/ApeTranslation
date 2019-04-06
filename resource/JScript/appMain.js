@@ -1,16 +1,14 @@
 //引入一些必备的组件
 const { BrowserWindow, app } = require('electron').remote
-const path = require('path')
-const http = require('http')
 var $ = require('jQuery');
-
 var vue = new Vue({
     el: "#content-main",
     data: {
         trans: true,
         about: false,
         server_list: false,
-        OCR: false
+        OCR: false,
+        t_result: ""
     }
 });
 
@@ -65,7 +63,10 @@ $(function () {
     // alert(Country + ":" + toCountry)
 });
 
+
+
 function tran() {
+
     let Country;
     let toCountry;
     switch ($('#Country option:selected').val()) {
@@ -108,8 +109,40 @@ function tran() {
             toCountry = "en";
             break;
     }
-    alert(Country + ":" + toCountry)
+    //alert(Country + ":" + toCountry)
+    toTranslation(Country, toCountry);
 }
+
+
+function toTranslation(Country, toCountry) {
+
+    if (Country == toCountry) {
+        mdui.snackbar({
+            message: '2个国家代码一样!😁请注意切换国家代码~',
+            position: 'right-bottom'
+        });
+    }
+
+    if (Country == "") {
+        mdui.snackbar({
+            message: '翻译内容为空😁!',
+            position: 'right-bottom'
+        });
+    }
+    if ($("#t_text").val() == "") {
+        mdui.snackbar({
+            message: '翻译内容为空😁!',
+            position: 'right-bottom'
+        });
+    }
+    //翻译内容
+    $.get(ServerAPI.trans_api, { Country: Country, toCountry: toCountry, Query: $("#t_text").val() }, function (result) {
+        console.log(result.data.t.data[0].dst)
+        vue.t_result = result.data.t.data[0].dst;
+    })
+}
+
+
 
 
 //销毁App进程

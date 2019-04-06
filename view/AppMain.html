@@ -96,7 +96,7 @@
 
             <div class="mdui-textfield">
                 <label class="mdui-textfield-label">请输入需要翻译的内容</label>
-                <textarea class="mdui-textfield-input" rows="4" placeholder="内容"></textarea>
+                <textarea id="t_text" class="mdui-textfield-input" rows="4" placeholder="内容"></textarea>
             </div>
             <div style="text-align: center;margin: auto;">
                 <select id="Country" class="mdui-select" mdui-select="{position: 'bottom'}">
@@ -119,8 +119,8 @@
             </div>
 
             <div class="mdui-textfield">
-                <label class="mdui-textfield-label">请输入需要翻译的内容</label>
-                <textarea class="mdui-textfield-input" rows="4" placeholder="内容"></textarea>
+                <label class="mdui-textfield-label">翻译结果内容展示</label>
+                <textarea class="mdui-textfield-input" rows="4" placeholder="结果" v-model="t_result"></textarea>
             </div>
 
             </br>
@@ -211,7 +211,8 @@
 
 
     </div>
-    <script src="../resource/JScript /appMain.js"></script>
+    <script src="../resource/JScript/API.js"></script>
+    <script src="../resource/JScript/appMain.js"></script>
     <script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.min.js"></script>
 </body>
 
