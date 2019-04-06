@@ -34,8 +34,8 @@
                     class="mdui-icon material-icons">menu</i></span>
             <a href="" class="mdui-typo-headline mdui-hidden-xs">ApeTranslation</a>
             <div class="mdui-toolbar-spacer"></div>
-            <a href="https://github.com/zdhxiong/mdui" target="_blank"
-                class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white" mdui-tooltip="{content: '查看 Github'}">
+            <a href="javascript:toGitHub()" target="_blank" class="mdui-btn mdui-btn-icon mdui-ripple mdui-ripple-white"
+                mdui-tooltip="{content: '查看 Github'}">
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 36 36"
                     enable-background="new 0 0 36 36" xml:space="preserve" class="mdui-icon"
@@ -120,14 +120,17 @@
 
             <div class="mdui-textfield">
                 <label class="mdui-textfield-label">翻译结果内容展示</label>
-                <textarea class="mdui-textfield-input" rows="4" placeholder="结果" v-model="t_result"></textarea>
+                <textarea class="mdui-textfield-input" id="t_result" rows="4" placeholder="结果"
+                    v-model="t_result"></textarea>
             </div>
 
             </br>
             <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;"
                 onclick="tran()">翻译内容</button>
-            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">复制结果</button>
-            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;">听语音</button>
+            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;"
+                onclick="toCopy()">复制结果</button>
+            <button class="mdui-btn mdui-btn-raised" style="color:floralwhite;background: #448aff;"
+                onclick="payload()">听语音</button>
         </div>
 
         <div v-show="about">
@@ -137,11 +140,11 @@
                 <img class="mdui-img-circle" style="width: 80px;height: 80px;" src="../ticon.png" />
                 <h5 style="font-size: 0.90rem;color: #6c757d!important;">Thank you for using our product.
                 </h5>
-                <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
+                <button class="mdui-btn mdui-color-theme-accentmdui-ripple" onclick="toGitHub()"
                     style="color:floralwhite;background: #001311;"><i class="fa fa-github"></i>Github</button>
-                <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
+                <button class="mdui-btn mdui-color-theme-accentmdui-ripple" onclick="toGitHub()"
                     style="color:floralwhite;background: #00C851;"><i class="fa fa-code"></i>website</button>
-                <button class="mdui-btn mdui-color-theme-accentmdui-ripple"
+                <button class="mdui-btn mdui-color-theme-accentmdui-ripple" onclick="toGitHub()"
                     style="color:floralwhite;background: #448aff;"><i
                         class="fa fa-facebook-square"></i>Facebook</button>
             </div>
@@ -156,7 +159,7 @@
 
                     <button class="mdui-btn mdui-btn-block mdui-color-theme-accent mdui-ripple"
                         style="color:floralwhite;background: #448aff;"><i
-                            class="mdui-icon material-icons">cloud_upload</i>&nbsp; 上传图片</button>
+                            class="mdui-icon material-icons">cloud_upload</i>&nbsp; 本功能未开放使用~敬请期待！</button>
                 </div>
 
             </div>

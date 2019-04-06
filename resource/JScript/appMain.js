@@ -1,6 +1,10 @@
 //引入一些必备的组件
-const { BrowserWindow, app } = require('electron').remote
+const { BrowserWindow, app, shell } = require('electron').remote
 var $ = require('jQuery');
+
+
+var Country;
+var toCountry;
 var vue = new Vue({
     el: "#content-main",
     data: {
@@ -8,7 +12,8 @@ var vue = new Vue({
         about: false,
         server_list: false,
         OCR: false,
-        t_result: ""
+        t_result: "",
+        audio: new Audio(),
     }
 });
 
@@ -63,12 +68,20 @@ $(function () {
     // alert(Country + ":" + toCountry)
 });
 
-
-
+function toGitHub() {
+    shell.openExternal('https://github.com/JDode/ApeTranslation')
+}
+function toCopy() {
+    var result = document.getElementById("t_result");
+    result.select(); // 选择对象
+    document.execCommand("Copy"); // 执行浏览器复制命令
+    mdui.snackbar({
+        message: result.innerText + " 👌已经复制到剪切板！",
+        position: 'right-bottom'
+    });
+    //alert("已复制好，可贴粘。");
+}
 function tran() {
-
-    let Country;
-    let toCountry;
     switch ($('#Country option:selected').val()) {
         case "1":
             Country = "zh";
@@ -113,6 +126,11 @@ function tran() {
     toTranslation(Country, toCountry);
 }
 
+
+function payload() {
+    vue.audio.src = "http://localhost:9098/mp3/audio?languageCode=" + toCountry + "&text=" + vue.t_result;
+    vue.audio.play()
+}
 
 function toTranslation(Country, toCountry) {
 
