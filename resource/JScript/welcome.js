@@ -31,7 +31,7 @@ var vue = new Vue({
                 // resizable: false,
                 center: true
             })
-            win.webContents.openDevTools()
+            //win.webContents.openDevTools()
             win.on('close', () => { win = null })
             win.loadURL(modalPath)
             win.show()

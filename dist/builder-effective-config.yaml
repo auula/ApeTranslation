@@ -6,7 +6,7 @@ productName: 猿翻译
 asar: true
 electronVersion: 4.1.0
 icon: ./resource/img/logo
-copyright: "\U0001F477个人独立开发:丁 烁 \n \U0001F4EE:coding1618@gmail.com \n Copyright ©️ https://apet.codegc.me"
+copyright: "本版本为: 预览版本\n \U0001F477个人独立开发:JDode  \n \U0001F4EE:coding1618@gmail.com \n Copyright ©️ https://github.com/JDode/ApeTranslation"
 mac:
   icon: ./resource/img/logo.icns
   target:
