@@ -6,8 +6,8 @@
 <p align="center">这是一个使用 <code>Electron</code> + <code>Vue.js</code> + <code>JavaScript</code> 开发的一个跨平台桌面操作系统的翻译软件😋</p>
 
 <p align="center">
-    🤩 <a href="https://github.com/YooDing/ApeTranslation" target="_blank">仓库地址</a> | 
-    🍻<a href="https://github.com/YooDing/ApeTranslation/releases" target="_blank">软件下载 </a> | 
+    🤩 <a href="https://github.com/higker/ApeTranslation" target="_blank">仓库地址</a> | 
+    🍻<a href="https://github.com/higker/ApeTranslation/releases" target="_blank">软件下载 </a> | 
     👷 <a href="https://wpa.qq.com/msgrd?v=3&uin=2420498526&site=qq&menu=yes" target="_blank">联系作者</a> 
 </p>
 
