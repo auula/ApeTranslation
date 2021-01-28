@@ -54,6 +54,6 @@
         "node-tesr": "0.0.9"
     },
     "devDependencies": {
-        "electron": "^4.1.1"
+        "electron": "^9.4.0"
     }
 }
